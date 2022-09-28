@@ -1,0 +1,40 @@
+
+header{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-info{
+    display: flex;
+
+}
+.left-arrow{
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.header-inter{
+    
+    font-size: medium;
+    font-weight: 200;
+    
+    margin: auto;
+   
+}
+.user-info{
+    /* border: 1px solid black; */
+    margin-right: 8px;
+    display: flex;
+    /* padding: 10px 10px ; */
+    width: 170px;
+    align-items: center;
+    justify-content: space-around;
+}
+.user{
+    text-align: center;
+}
