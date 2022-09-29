@@ -64,7 +64,7 @@ const SideBar = ({ children }) => {
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "300px" : "45px",
+            width: isOpen ? "300px" : "65px",
 
             transition: {
               duration: 0.5,
@@ -84,7 +84,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  DoSomeCoding
+                  Hire++
                 </motion.h1>
               )}
             </AnimatePresence>

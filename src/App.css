@@ -41,6 +41,8 @@ main {
 }
 .bars {
   width: 30px;
+  font-size: larger;
+  margin-left: 9px;
 }
 .hide {
   display: none;
@@ -49,7 +51,7 @@ main {
 .search {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 10px;
   height: 30px;
   padding: 10px;
 }

@@ -11,7 +11,7 @@ body {
 .form {
 
   height: 100vh;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .body-header {
@@ -30,14 +30,14 @@ body {
 .form-dashboard {
   /* border: 1px solid green; */
   height: 86vh;
-  width: 70%;
+  width: 75%;
   padding: 2px 15px;
 }
 
 .added-candidate {
   /* border: 1px solid red; */
   height: 86vh;
-  width: 30%;
+  width: 25%;
   /* background-color: #F2F8FE; */
   padding: 10px;
   /* border-radius: 8px; */
@@ -101,7 +101,7 @@ body {
 .email-icon {
   position: absolute;
   align-items: center;
-  margin-top: 7px;
+  margin-top: 4px;
   color: gray;
   font-size: larger;
   margin-left: 10px;
@@ -123,13 +123,16 @@ body {
   gap:12px 25px;
 }
 .form-input input{
-  width: 70%;
+  width: 100%;
   padding: 6px;
   font-size: .75rem;
   border: none;
   outline: none;
   color: gray;
+  background-color: white;
 }
+
+
 .form-input select{
   width: 100%;
   padding: 7px;
@@ -140,6 +143,8 @@ body {
 }
 .email-input{
   margin-left: 30px;
+  width: 94% !important;
+  border-radius: 3px;
 }
 .form-general h4{
   margin-bottom: 1.3%;
@@ -178,4 +183,52 @@ body {
 label{
   font-size:small;
   
+}
+.error{
+  color: red;
+  font-size: small;
+}
+.each-item{
+  width: 100%;
+  background-color: #103662;
+  height: 80px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 8px;
+  margin-top: 6px;
+}
+.each-item-header-container{
+  display: flex;
+  justify-content: space-between;
+}
+.added-candidate-header{
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  align-items: center;
+  font-size: .95rem;
+  
+}
+.clear-all{
+  background-color: #186ac7;
+  border: none;
+  color: white;
+  padding: 6px 5px;
+  border-radius: 4px;
+  width: 110%;
+  cursor: pointer;
+  font-size: .75rem;
+}
+.added-candidate-card{
+  padding: 8px;
+}
+.each-item-delete{
+  cursor: pointer;
+}
+.id{
+  margin-top: 5px;
+  color: white;
+  font-size: .70rem;
 }

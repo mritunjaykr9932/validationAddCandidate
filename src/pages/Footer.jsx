@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 
  
 
-function Footer() {
+function Footer(props) {
     // const history = Navigate();
    const handle = () => {
     //  props.setPage((currentPage) => currentPage + 1);
@@ -14,14 +14,14 @@ function Footer() {
         // history(-1);
      
    };
+   
     
   return (
     <div>
       <div className="footer">
-       
         <button
           className="footer-button"
-        //   disabled={props.page === props.formtitle.length - 1}
+          disabled={props.headerlen === 0}
           // onClick={() => {
           //   setPage((currentPage) => currentPage + 1);
           // }}

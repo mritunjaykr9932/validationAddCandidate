@@ -20,7 +20,7 @@
     cursor: pointer;
 }
 :disabled{
-    background-color: white;
-    color: rgb(86, 85, 85);
+    background-color:#5e7fa5;
+    color: whitesmoke;
     cursor: no-drop;
 }
