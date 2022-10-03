@@ -1,32 +1,20 @@
-import React, { useContext } from 'react';
-import './footer.css'
-import { Navigate } from 'react-router-dom';
-
-
-
- 
+import React, { useContext, useState } from "react";
+import "./footer.css";
+import { Navigate } from "react-router-dom";
+import Modal from "./Modal";
 
 function Footer(props) {
-    // const history = Navigate();
-   const handle = () => {
-    //  props.setPage((currentPage) => currentPage + 1);
 
-        // history(-1);
-     
-   };
-   
-    
+  const [openModal,setOpenModal] = useState(false)
   return (
     <div>
+    {openModal && <Modal closeModal={setOpenModal} />}
       <div className="footer">
         <button
           className="footer-button"
           disabled={props.headerlen === 0}
-          // onClick={() => {
-          //   setPage((currentPage) => currentPage + 1);
-          // }}
-
-          onClick={handle}
+          onClick={()=>{setOpenModal(true)}}
+          id="openModalBtn"
         >
           Finish
         </button>
@@ -35,4 +23,4 @@ function Footer(props) {
   );
 }
 
-export default Footer
+export default Footer;
