@@ -34,6 +34,17 @@ main {
   align-items: center;
   justify-content: space-between;
   padding: 15px 10px;
+  margin-top: 15px;
+}
+.down_section{
+    display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* flex-direction: column; */
+  padding: 15px 10px;
+  /* border-top: 0; */
+  /* position: fixed; */
+  margin-top: 68vh;
 }
 .logo {
   font-size: 18px;
@@ -42,7 +53,27 @@ main {
 .bars {
   width: 30px;
   font-size: larger;
-  margin-left: 9px;
+  /* margin-left: 9px; */
+  bottom: 10px;
+  background-color: whitesmoke;
+  align-items: center;
+  width: 43px;
+  cursor: pointer;
+  /* align-self: center; */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+}
+.BsChevronDoubleLeft{
+  font-weight: bolder;
+  font-size: larger;
+  font-style:normal;
+  color: black;
+  padding: 1px 1px;
+  margin: 3.5px 0px;
+  width: 100%;
+  
 }
 .hide {
   display: none;

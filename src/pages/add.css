@@ -9,24 +9,32 @@
     /* background-color: aqua; */
     padding: 20px;
     height: 87vh;
+    
+    /* border: 1px solid green; */
     /* border: 1px solid red; */
 }
-
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    /* width: 1500px; */
+}
 .candidate-card{
     /* background-color: gray; */
     background: #103662;
-    height: 48%;
-    /* background-color: blue; */
-/* Shadow/sm-down */
+    /* width: 90%; */
+    border: 1px solid red;
 
 box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 6px rgba(16, 24, 40, 0.06);
     color: whitesmoke;
-    display: inline-block;
-    width: 25%;
+    /* display: inline-block; */
+    width: 30%;
     padding: 10px 10px;
     /* margin-top: 5%; */
     border-radius: 6px;
     margin: 20px;
+    /* font-size: .80em; */
     
 }
 .candidate-header{
@@ -37,17 +45,23 @@ box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 6px rgba(16, 24, 40, 0.06
 }
 .candidate-body{
     display: grid;
-    grid-template: 40px 40px / 1fr 1fr ;
-    gap: 8px 40px;
+    grid-template: 20% 20% / 2fr 1.5fr ;
+    gap:10px 40px;
+
+    font-size: 0.70em;
     margin-top: 2%;
+    /* margin: auto; */
     padding: 8px;
+    /* border: 1px solid white; */
+    /* padding: auto; */
     /* line-height: 25px; */
 }
-label{
-    font-size: 17px;
+.candidate-card label{
+    font-size: 0.89rem;
+    font-weight: bold;
 }
 .candidate-body p{
-    font-size:.82rem;
+    font-size:.75rem;
     color: whitesmoke;
 }
 
@@ -61,6 +75,12 @@ label{
 }
 .candidate-resume h3{
     background-color: crimson;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+.added-candidate-view{
+     background-color: crimson;
     padding: 5px;
     border-radius: 4px;
     text-align: center;

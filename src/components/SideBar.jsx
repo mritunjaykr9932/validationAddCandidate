@@ -3,8 +3,8 @@ import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
+import { AiFillHeart, AiOutlineDoubleLeft, AiOutlineDoubleRight, AiTwotoneFileExclamation } from "react-icons/ai";
+import { BsCartCheck, BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
@@ -19,7 +19,6 @@ const routes = [
     name: "Analytics",
     icon: <BiAnalyse />,
   },
-  
 ];
 
 const SideBar = ({ children }) => {
@@ -68,7 +67,7 @@ const SideBar = ({ children }) => {
 
             transition: {
               duration: 0.5,
-              type: "spring",
+              // type: "spring",
               damping: 10,
             },
           }}
@@ -88,11 +87,8 @@ const SideBar = ({ children }) => {
                 </motion.h1>
               )}
             </AnimatePresence>
-
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
           </div>
+
           <div className="search">
             <div className="search_icon">
               <BiSearch />
@@ -148,6 +144,34 @@ const SideBar = ({ children }) => {
               );
             })}
           </section>
+          <div className="down_section">
+            <AnimatePresence>
+              {isOpen && (
+                <motion.h1
+                  variants={showAnimation}
+                  initial="hidden"
+                  animate="show"
+                  exit="hidden"
+                  className="logo"
+                ></motion.h1>
+              )}
+            </AnimatePresence>
+            {isOpen ? (
+              <div className="bars">
+                <AiOutlineDoubleLeft
+                  className="BsChevronDoubleLeft"
+                  onClick={toggle}
+                />
+              </div>
+            ) : (
+              <div className="bars">
+                <AiOutlineDoubleRight
+                  className="BsChevronDoubleLeft"
+                  onClick={toggle}
+                />
+              </div>
+            )}
+          </div>
         </motion.div>
 
         <main>{children}</main>

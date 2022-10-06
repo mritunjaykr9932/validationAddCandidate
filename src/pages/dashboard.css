@@ -260,6 +260,8 @@ label{
   border-radius: 8px;
   width: 100%;
   padding: 10px;
+  font-size: .95rem;
+  height: 16%;
 }
 
 .file-info{
@@ -267,10 +269,11 @@ label{
   justify-content: space-around;
   /* border: 1px solid green; */
   align-items: center;
-  width: 38%;
+  width: 58vh;
   margin: auto;
   padding: 4px 6px;
   cursor: pointer;
+  /* font-size: .55rem; */
 }
 .drag-color{
   color: #344054;

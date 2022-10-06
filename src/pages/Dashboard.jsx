@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { BiEnvelope, BiX } from "react-icons/bi";
 import Header from "../components/Header";
 import { useDropzone } from "react-dropzone";
-import './footer.css';
+import "./footer.css";
 import Modal from "./Modal";
 
 import "./dashboard.css";
@@ -33,6 +33,7 @@ const Dashboard = (props) => {
     currentCTC: "",
     expectedCTC: "",
     file: "",
+    fileUrl: "",
   };
 
   const [formValues, setFormValues] = useState(initialValues);
@@ -40,9 +41,11 @@ const Dashboard = (props) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [items, setItems] = useState(getLocalItems());
   const [len, setLen] = useState();
-  const [file, setFile] = useState();
+
   const [fileError, setFileError] = useState({});
   const [openModal, setOpenModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState([]);
+  const [fileBase64, setFileBase64] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,7 +66,7 @@ const Dashboard = (props) => {
   const reset = (e) => {
     e.preventDefault();
     setFormValues(initialValues);
-    setFormErrors('')
+    setFormErrors("");
     setIsSubmit(false);
     // console.log(initialValues);
   };
@@ -97,14 +100,76 @@ const Dashboard = (props) => {
     );
   }, [items]);
 
+  const onFileChange = (e) => {
+    setSelectedFile(e.target.files);
+    console.log("pdf", e.target.files[0]);
+  };
+
+  // const encodeFileBase64 = (acceptedFiles) =>{
+  //   const reader = new FileReader();
+  //   if(acceptedFiles) {
+  //     reader.readAsDataURL(acceptedFiles);
+  //     reader.onload = ()=>{
+  //       const Base64 = reader.result;
+  //       console.log(Base64);
+  //       setFormValues((exisitingValues) => ({
+  //         ...exisitingValues,
+  //         fileUrl: Base64,
+  //       }));
+  //       // setFileBase64(Base64);
+  //       reader.onerror = (error) => {
+  //         console.log("error:",error);
+  //       }
+  //     }
+  //   }
+  // }
+
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
+
+    const reader = new FileReader();
+    if (acceptedFiles) {
+      reader.readAsDataURL(acceptedFiles[0]);
+      reader.onload = () => {
+        const Base64 = reader.result;
+        console.log(Base64);
+        setFormValues((exisitingValues) => ({
+          ...exisitingValues,
+          fileUrl: (Base64),
+        }));
+        // setFileBase64(Base64);
+        reader.onerror = (error) => {
+          console.log("error:", error);
+        };
+      };
+    }
     setFormValues((exisitingValues) => ({
       ...exisitingValues,
       file: acceptedFiles[0],
     }));
   }, []);
+  // const pdf = async (e) =>{
+  //   const file = e.target.files[0];
+  //    const base64 = await convertBase64(file);
+  //    console.log("pdf", base64);
+
+  // }
+
   // console.log(acceptedFiles);
+  // const convertBase64=(file)=>{
+  //   return new Promise ((resolve,reject)=>{
+  //     const fileReader = new FileReader();
+  //     fileReader.readAsDataURL(file);
+
+  //     fileReader.onload = (()=>{
+  //       resolve(fileReader.result);
+  //     })
+
+  //     fileReader.onerror = ((error)=>{
+  //       reject(error);
+  //     })
+  //   })
+  // }
 
   const { getRootProps, getInputProps, isDragAccept, isDragReject } =
     useDropzone({
@@ -118,7 +183,7 @@ const Dashboard = (props) => {
 
   const validate = (values) => {
     const error = {};
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(.\w{2,3})+$/;
     var phoneno = /^\d{10}$/;
 
     if (!values.firstname) {
@@ -149,6 +214,7 @@ const Dashboard = (props) => {
     if (!values.file) {
       error.file = "* uplaod the file";
     }
+
     return error;
   };
 
@@ -305,7 +371,7 @@ const Dashboard = (props) => {
                     </label>
                     <div className="form-input">
                       <input
-                        type="text"
+                        type="number"
                         name="currentCTC"
                         placeholder="Eg...38,000"
                         onChange={handleChange}
@@ -339,7 +405,7 @@ const Dashboard = (props) => {
               </div>
 
               <div {...getRootProps()} className="getRoot">
-                <input {...getInputProps()} />
+                <input onChange={onFileChange} {...getInputProps()} />
                 <div className="file-info">
                   {isDragReject ? (
                     <p className="file-warning">
